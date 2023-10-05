@@ -1,0 +1,66 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+{{% if success is True %}
+<div class="alert alert-primary" role="alert">
+  Thank you for contacting us.
+</div>
+{% endif %}}
+  <!-- contact section -->
+  <section class="contact_section layout_padding" style="
+    background-color: grey;
+    background-blend-mode: multiply;
+    background-size:contain;
+    background-image: url({% static 'images/contact-wallpaper.jpg' %});
+  ">
+    <div class="container">
+      <div class="heading_container text-light heading_center">
+        <h2>Get In touch</h2>
+      </div>
+      <div style="display: flex; justify-content: center; align-items: center">
+        <div class="contact_form-container" style="
+          background-color: transparent;
+          -webkit-text-fill-color: darkgoldenrod;
+        ">
+          <form action method="post">
+        {% csrf_token %}
+            <div style="caret-color:yellow;border: 5px solid darkslategrey; text-align: center">
+              <h2>-: Contact Form :-</h2>
+              <input name="fname" style="
+                width: 95%;
+                margin: 1%;
+                background-color: transparent;
+                border-bottom: 3px solid darkslategray;
+              " type="text" placeholder="FULL NAME :" required 
+               />
+              <input name="email" style="
+                width: 95%;
+                margin: 1%;
+                background-color: transparent;
+                border-bottom: 3px solid darkslategray;
+              " type="email" placeholder="Email : "  required   pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"/>
+              <input name="phone" style="
+                width: 95%;
+                margin: 1%;
+                background-color: transparent;
+                border-bottom: 3px solid darkslategray;
+              " type="text" placeholder="Phone Number :" pattern="[0-9]{10}"/>
+              <input name="message" style="
+                width: 95%;
+                margin: 1%;
+                background-color: transparent;
+                border-bottom: 3px solid darkslategray;
+              " type="text" placeholder="Message :" class="message_input" />
+              <input type="submit" value="Send" style="
+                margin: 1%;
+                background-color: darkslategrey;
+                border-radius: 2em;
+                width: 10%;
+              ">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

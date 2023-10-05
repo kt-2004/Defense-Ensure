@@ -1,0 +1,82 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<label id="logged_out" style="display:none;">
+  <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+  <div class="alert error">
+    <span class="alertClose">X</span>
+    <span class="alertText">Logged out successfully.
+    <br class="error"/></span>
+  </div>
+</label>
+<script>
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.has('logged_out')) {
+        document.getElementById("logged_out").style.display = "inline-block";
+    }
+</script>
+
+<div class="hero_area">
+    <!-- slider section -->
+    <section class=" slider_section ">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="detail-box">
+                                    <h1>
+                                        Your Safety <br>
+                                        <span>
+                        Our Responsibility
+                      </span>
+                                    </h1>
+                                    <p>
+                                        We can provide you the best home security with the finest and high resolution cctv cameras and other smart lock systems .
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1" style="background-color:darkcyan;border-radius: 2em;"> Read more </a>
+                                        <a href="" class="btn-2" style="background-color:darkseagreen;border-radius: 2em;">Get A Quote</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="detail-box">
+                                    <h1>
+                                        Your Safety <br>
+                                        <span>
+                        Our Responsibility
+                      </span>
+                                    </h1>
+                                    <p>
+                                        Our expertise in cyber security will give strongest security to your devices and make your information safe.
+                                    </p>
+                                    <div class="btn-box">
+                                        <a href="" class="btn-1" style="background-color:darkseagreen; border-radius:2em"> Read more </a>
+                                        <a href="" class="btn-2" style="background-color:darkcyan; border-radius:2em">Get A Quote</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container idicator_container">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+    <!-- end slider section -->
+</div>
+
+{% endblock %}

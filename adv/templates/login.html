@@ -1,0 +1,36 @@
+{% extends "board.html" %} {% load static %} {% block title %}Login{% endblock %} {% block content %} {% if login_failed == "True" %}
+<label>
+  <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+  <div class="alert error">
+    <span class="alertClose">X</span>
+    <span class="alertText">Username or password incorrect!
+    <br class="error"/></span>
+  </div>
+</label> {% endif %}
+
+<label id="registeration_success" style="display:none;">
+  <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+  <div class="alert error">
+    <span class="alertClose">X</span>
+    <span class="alertText">Registeration Successful.
+    <br class="error"/></span>
+  </div>
+</label>
+<script>
+  const searchParams = new URLSearchParams(window.location.search);
+  if (searchParams.has('registeration_success')) {
+      document.getElementById("registeration_success").style.display = "block";
+  }
+</script>
+
+<div id="container">
+    <form action method="post">
+        {% csrf_token %}
+        <h1>-:FORM:-</h1>
+        <input name="username" placeholder="Username" class="input" type="text" required />
+        <input name="password" title="Required 8 character password" placeholder="Password" class="input" type="password" required pattern=".{8,}" />
+        <input class="btn btn-inside btn-boarder" id="sign-in" value="SIGN IN" type="submit" />
+        <a id="register" href="{% url 'register' %}">Register</a>
+        <form>
+</div>
+{% endblock %}

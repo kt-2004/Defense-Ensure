@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <!-- team section -->
+  <section class="team_section layout_padding">
+    <div class="container">
+      <div class="heading_container text-info heading_center">
+        <h2 style="-webkit-text-fill-color:whitesmoke;">Our Guards</h2>
+        <h3><p>
+          We have bestest bodyguards with us for you to give protection at every place and ensure you to visit anywhere fearlessly .</h3>
+        </p>
+      </div>
+      <div class="row">
+        {% for i in listdata %}
+        <div class="col-md-4 col-sm-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img style="aspect-ratio:4/6;border:5px solid darkslategray;border-radius:25px;" src="{{i.gPhoto.url}}" alt="" />
+            </div>
+            <div class="detail-box" style="-webkit-text-fill-color: lightgoldenrodyellow;border: 5px solid darkslategray;border-radius:25px;">
+              <h5>{{ i.gName }}</h5>
+              <h6 class="">{{i.gPos}}</h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        {% comment %} <div class="col-md-4 col-sm-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/t2.jpg' %}" alt="" />
+            </div>
+            <div class="detail-box" style="-webkit-text-fill-color: lightgoldenrodyellow;">
+              <h5>Denny Butler</h5>
+              <h6 class="">supervisor</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mx-auto">
+          <div class="box">
+            <div class="img-box">
+              <img src="{% static 'images/t3.jpg' %}" alt="" />
+            </div>
+            <div class="detail-box" style="-webkit-text-fill-color: lightgoldenrodyellow;">
+              <h5>Nathan William</h5>
+              <h6 class="">supervisor</h6>
+            </div>
+          </div>
+        </div> {% endcomment %}
+      </div>
+      <div class="btn-box">
+        <a href="" style="background-color:darkslategrey; border-radius: 2em;">View All</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end team section -->
+{% endblock %}
