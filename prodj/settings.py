@@ -121,3 +121,11 @@ STATIC_URL = "adv/static/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#This code is for sending email for verifying password ...
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_USE_TLS = True #tls=Transport Layer Security ,it supports new algorithms for security and encryption purpose.recently this is most commonly in use.
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'hikhuko011@gmail.com'
+EMAIL_HOST_PASSWORD = 'gxsvelxjtcemovax'#space between password is not allowed here.
+EMAIL_PORT = 587
+EMAIL_USE_SSL=False #ssl=Secure Sockets Layer,it uses older algorithms to provide security of data over internet.less in use due to TLS .

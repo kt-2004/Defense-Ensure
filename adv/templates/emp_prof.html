@@ -1,0 +1,41 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+  <!-- contact section -->
+  <section class="contact_section layout_padding" style="
+    background-color: grey;
+    background-blend-mode: multiply;
+    background-size:cover;
+    background-image: url({% static 'images/login_bg.jpg' %});
+    height: 100vh;
+  ">
+    <div class="container">
+       <div class="heading_container heading_center">
+        <h2>-: Update Data :-</h2>
+      </div>
+      <table class="table table-borderless text-light">
+        <form method="POST" action="" >
+            {% csrf_token %}
+        <tr>
+          <a  href="{% url 'change_pass' %}"style="background-color:transparent;color:red;border-bottom:1px yellow solid">Change password</a>  
+        </tr>
+        <tr>
+            <th>Username :</th>
+            <td ><span type="text" name="uName"> {{editf.uName}}</span></td>
+        </tr>
+        <tr>
+            <th>E-Mail:</th>
+            <td><input type="email" name="uEmail"value="{{editf.uEmail}}"/><td>
+        </tr>
+        </table>
+        <table>
+        <tr>
+            <button type="submit">Update Profile</button>
+        </tr>  
+    </form>
+    </table>
+      </div>
+    </div>
+
+  </section>
+{% endblock %}

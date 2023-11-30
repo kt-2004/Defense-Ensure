@@ -70,7 +70,19 @@
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'contact' %}">Contact us</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'json_file' %}">Json_File</a>
+                </li>
+                {% comment %} <li class="nav-item">
+                  <a class="nav-link" href="{% url 'json_add' %}">Json_Add</a>
+                </li> {% endcomment %}
                 {% if isLoggedIn == "True" %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'displaydata' %}">Displaydata</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'emp_prof' %}">My Profile</a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout' %}">Logout</a>
                 </li>
@@ -112,5 +124,26 @@
     <script src="{% static 'js/jquery-3.4.1.min.' %}js"></script>
     <script src="{% static 'js/bootstrap.' %}js"></script>
     <script src="{% static 'js/custom.' %}js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css">
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#example').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+          'copy', 'csv', 'excel', 'pdf', 'print'
+      ]
+  } );
+} );
+</script>
   </body>
 </html>

@@ -1,0 +1,78 @@
+{% extends 'board.html' %} {% load static %} {% block content %}
+<section class="contact_section layout_padding"style="
+background-color: grey;
+background-blend-mode: multiply;
+background-size:cover;
+background-image: url({% static 'images/login_bg.jpg' %});height: 100vh;">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <script>
+                function check() {
+                    if (document.getElementById('new-password').value ==
+                        document.getElementById('confirm-password').value) {
+                        document.getElementById('message').style.color = 'green';
+                        document.getElementById('message').innerHTML = 'Matching';
+                        document.getElementById("submit").disabled = false
+                        if (document.getElementById('new-password').value == "" || document.getElementById('confirm-password').value == "") {
+                            document.getElementById('message').style.color = 'white';
+                            document.getElementById('message').innerHTML = 'Password can\'t be empty';
+                            document.getElementById("submit").disabled = true
+                        }
+                    } else {
+                        document.getElementById('message').style.color = 'red';
+                        document.getElementById('message').innerHTML = 'Not Matching';
+                    }
+                }
+                setInterval(() => {
+                    check()
+                }, 250);
+            </script>
+
+            <label id="invalid_username" style="display:none;">
+              <input type="checkbox" class="alertCheckbox" autocomplete="off" />
+              <div class="alert error">
+                <span class="alertClose">X</span>
+                <span class="alertText">Invalid Username.
+                <br class="error"/></span>
+              </div>
+            </label>
+
+            <script>
+                const searchParams = new URLSearchParams(window.location.search);
+                if (searchParams.has("invalid_username")) {
+                    document.getElementById("invalid_username").style.display = "block";
+                }
+            </script>
+
+
+
+            <h2 style="color: white;text-align: center;">-:Set New Password:-</h2>
+        </div>
+        <table class="table table-borderless text-light">
+            <form method="POST" action="">
+                {% csrf_token %}
+                <tr>
+                    <th>Username:</th>
+                    <td><input type="text" name="uName" required /></td>
+                </tr>
+                <tr>
+                    <th>New-password:</th>
+                    <td><input id="new-password" title="Password must be at least 5 character long" type="password" name="newPass" pattern=".{5,}"/>
+                    </td>
+                </tr>
+                <tr>
+                    <th> Confirm-Password:</th>
+                    <td><input title="Password must be at least 5 character long" id="confirm-password" type="password" pattern=".{5,}" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <div id="message" style="font-size: 1.5em;"></div>
+                    </th>
+                    <td><input disabled type="submit" id="submit" value="Reset Password" /></td>
+                </tr>
+            </form>
+        </table>
+    </div>
+</section>
+{% endblock %}

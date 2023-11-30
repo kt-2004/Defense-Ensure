@@ -27,10 +27,11 @@
     <form action method="post">
         {% csrf_token %}
         <h1>-:FORM:-</h1>
-        <input name="username" placeholder="Username" class="input" type="text" required />
-        <input name="password" title="Required 8 character password" placeholder="Password" class="input" type="password" required pattern=".{8,}" />
+        <input name="uName" placeholder="Username" class="input" type="text" required />
+        <input name="uPass" title="Required 5 character password" placeholder="Password" class="input" type="password" required pattern=".{5,}" />
         <input class="btn btn-inside btn-boarder" id="sign-in" value="SIGN IN" type="submit" />
-        <a id="register" href="{% url 'register' %}">Register</a>
+        <a class="link" id="register" href="{% url 'register' %}">Register</a>
+        <a class="link" id="forgot_pass" href="{% url 'forgot_pass' %}">Forgot Password</a>
         <form>
 </div>
 {% endblock %}

@@ -7,9 +7,9 @@
       <form action method="post">
          {% csrf_token %}
          <h1>-:FORM:-</h1>
-      <input name="username" placeholder="Username" class="input" type="text" required />
-      <input name="password" placeholder="Password" class="input" type="password" title="Required 8 character password" required pattern=".{8,}"/>
-      <input name="email" placeholder="Email" class="input" type="Email"  required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"/>
+      <input name="uName" placeholder="Username" class="input" type="text" required />
+      <input name="uPass" placeholder="Password" class="input" type="password" title="Required 5 character password" required pattern=".{5,}"/>
+      <input name="uEmail" placeholder="Email" class="input" type="Email"  required pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"/>
       <input class="btn btn-inside btn-boarder" id="sign-in" value="REGISTER" type="submit" />
       <form>
     </div>

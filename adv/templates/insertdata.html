@@ -1,0 +1,49 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% block content %}
+
+  <!-- contact section -->
+  <section class="contact_section layout_padding" style="
+    background-color: grey;
+    background-blend-mode: multiply;
+    background-size:cover;
+    background-image: url({% static 'images/login_bg.jpg' %});
+    height: 100vh;
+  ">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+            Insert data
+        </h2>
+      </div>
+      <table class="table table-borderless text-light">
+        <form method="POST" action="">
+            {% csrf_token %}
+        <tr>
+            <th>Id</th>
+            <td><input type="number" name="eId"/><td>
+            </tr>
+           <tr>
+            <th>Name</th>
+            <td><input type="text" name="eName"/><td>
+            </tr>
+        <tr>
+            <th>E-Mail:</th>
+            <td><input type="email" name="eEmail"/><td>
+        </tr>
+        <tr>    
+            <th>Contact:</th>
+            <td><input type="number" name="eContact"/><td>
+        </tr>
+        </table>
+        <table>
+        <tr>
+            <button type="submit">Add Employee</button>
+        </tr>  
+    </form>
+    </table>
+      </div>
+    </div>
+
+  </section>
+{% endblock %}

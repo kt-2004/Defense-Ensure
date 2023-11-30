@@ -1,0 +1,53 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- contact section -->
+<section class="contact_section layout_padding" style="
+    background-color: grey;
+    background-blend-mode: multiply;
+    background-size:cover;
+    background-image: url({% static 'images/login_bg.jpg' %});
+    height:100vh; 
+  ">
+    <div class="container">
+        <div class="heading_container text-light heading_center">
+            <h2>-: Employees Details :-</h2>
+            <a href="{% url 'insertdata' %}" style="background:transparent;-webkit-text-fill-color:red;border-bottom: 2px solid yellow ; margin-bottom:3%;">  ADD DATA</a>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <form action="" method="POST" style="text-light; border-bottom:2px solid whitesmoke">
+                <table id="example" class="display nowrap" style="background-color:transparent;-webkit-text-fill-color:wheat; width:100%;">
+                    <style>
+                        .dt-button {
+                            border: 2px solid white !important;
+                        }
+                    </style>
+                    <thead>
+                        <tr>
+                            <th style="border: 2px solid whitesmoke;">ID</th>
+                            <th style="border: 2px solid whitesmoke;">Name</th>
+                            <th style="border: 2px solid whitesmoke;">Email</th>
+                            <th style="border: 2px solid whitesmoke;">Contact</th>
+                            <th style="border: 2px solid whitesmoke;">Actions</th>
+                            <th style="border: 2px solid whitesmoke;">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ls in listformdata %}
+                        <tr>
+                            <td style="border: 2px solid whitesmoke;">{{ ls.eId }}</td>
+                            <td style="border: 2px solid whitesmoke;">{{ ls.eName }}</td>
+                            <td style="border: 2px solid whitesmoke;">{{ ls.eEmail }}</td>
+                            <td style="border: 2px solid whitesmoke;">{{ ls.eContact }}</td>
+                            <td style="border: 2px solid whitesmoke;"><a href="../editdata/{{ ls.eId }}" style="background:transparent;-webkit-text-fill-color:white;border-bottom: 2px solid yellow">Edit</a></td>
+                            <td style="border: 2px solid whitesmoke;"><a href="../deletedata/{{ ls.eId }}" style="background:transparent;-webkit-text-fill-color:white;border-bottom: 2px solid yellow">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+</section>
+{% endblock %}
